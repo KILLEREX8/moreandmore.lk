@@ -1,0 +1,13 @@
+.env
+.idea/
+.vscode/
+/vendor/
+/uploads/products/*
+!/uploads/products/.htaccess
+!/uploads/products/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+*.log
+*.sql.gz
+Thumbs.db
+.DS_Store

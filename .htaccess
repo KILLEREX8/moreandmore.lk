@@ -1,0 +1,18 @@
+Options -Indexes
+ServerSignature Off
+RewriteEngine On
+RewriteRule ^admin/login\.php$ - [R=404,L,NC]
+RewriteRule ^admin-entry-([a-f0-9]{32})-([a-f0-9]{32})/?$ admin/login.php?route_token=$1$2 [END,QSA]
+RewriteRule ^(backend|migrations|src|tests|dist|node_modules|instance|\.venv|\.pytest_cache|storage|scripts)/ - [F,NC,L]
+
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|package(-lock)?\.json|requirements\.txt|README\.md)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(py|pyc|jsx|tsx|lock)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.sql$">
+    Require all denied
+</FilesMatch>
